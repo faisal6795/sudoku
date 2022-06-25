@@ -3,82 +3,124 @@ $border-color-light: #ddd;
 $border-color-dark: #222;
 $bg-color-light: #efefef;
 
+.back-btn {
+	position: relative;
+	width: 2.5rem;
+	height: 2.5rem;
+	border: 1px solid #ddd;
+	border-radius: 50%;
+	cursor: pointer;
+	-webkit-tap-highlight-color: transparent;
+	background: none;
+
+	&:focus,
+	&:hover {
+		background-color: #efefef;
+	}
+
+	&::after {
+		content: '';
+		width: 8px;
+		height: 8px;
+		border-width: 2px 2px 0 0;
+		border-style: solid;
+		border-color: #000;
+		display: block;
+		transform: translate(-30%, -50%) rotate(-135deg);
+		position: absolute;
+		top: 50%;
+		left: 50%;
+	}
+}
+
 .game {
-    user-select: none;
+	user-select: none;
 
-    .board-wrapper {
-        display: flex;
-        flex-direction: column;
-        margin: 2rem 0;
+	.board-wrapper {
+		display: flex;
+		flex-direction: column;
+		margin: 2rem 0;
 
-        .row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+		.row {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
 
-            button {
-                aspect-ratio: 1;
-                flex: 1;
-                font-size: 20px;
-                border-color: $border-color-light;
-                border-style: solid;
-                border-width: 0 1px 1px 0;
-                background: none;
-                outline: 0;
-                box-sizing: content-box;
+			button {
+				aspect-ratio: 1;
+				flex: 1;
+				font-size: 20px;
+				font-weight: bold;
+				border-color: $border-color-light;
+				border-style: solid;
+				border-width: 0 1px 1px 0;
+				background: none;
+				outline: 0;
+				box-sizing: content-box;
 
-                &:nth-child(3n) {
-                    border-right: 2px solid $border-color-dark;
-                }
+				&:nth-child(3n) {
+					border-right: 2px solid $border-color-dark;
+				}
 
-                &:last-child {
-                    border-right: 0;
-                }
+				&:last-child {
+					border-right: 0;
+				}
 
-                &.active {
-                    background-color: rgba($block-color, 30%);
-                }
+				&.readonly {
+					color: #888;
+					font-weight: normal;
+				}
 
-                &.selected {
-                    background-color: $block-color;
-                }
-            }
+				&.active {
+					background-color: rgba($block-color, 30%);
+				}
 
-            &:nth-child(3n) {
-                &:not(:last-child) {
-                    border-bottom: 2px solid $border-color-dark;
-                }
+				&.selected {
+					background-color: $block-color;
+				}
 
-                button {
-                    border-bottom: 0;
-                }
-            }
+				&.error {
+					background-color: #f45b51;
+					color: #fff;
+				}
+			}
 
-            &:last-child button {
-                border-bottom: 0;
-            }
-        }
-    }
+			&:nth-child(3n) {
+				&:not(:last-child) {
+					border-bottom: 2px solid $border-color-dark;
+				}
 
-    .number-wrapper {
-        display: grid;
-        grid-template-columns: repeat(5, min(16%, 3.5rem));
-        gap: 0.5rem;
-        justify-content: center;
+				button {
+					border-bottom: 0;
+				}
+			}
 
-        button {
-            border: 1px solid $border-color-light;
-            aspect-ratio: 1;
-            border-radius: 50%;
-            background: none;
-            font-size: 150%;
-            cursor: pointer;
-            -webkit-tap-highlight-color: transparent;
+			&:last-child button {
+				border-bottom: 0;
+			}
+		}
+	}
 
-            &:focus,
-            &:hover {
-                background-color: $bg-color-light;
-            }
-        }
-    }
+	.number-wrapper {
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		gap: 0.5rem;
+		max-width: 380px;
+		margin: 0 auto;
+
+		button {
+			border: 1px solid $border-color-light;
+			aspect-ratio: 1;
+			border-radius: 50%;
+			background: none;
+			font-size: 150%;
+			cursor: pointer;
+			-webkit-tap-highlight-color: transparent;
+
+			&:focus,
+			&:hover {
+				background-color: $bg-color-light;
+			}
+		}
+	}
 }

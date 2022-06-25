@@ -12,29 +12,25 @@ export default function Dashboard({ gotoGame, level, changeLevel }) {
 	const title = 'Sudoku';
 	const btnText = 'New Game';
 
-	function decreaseLevel() {
+	const decreaseLevel = () => {
 		changeLevel(level > 0 ? level - 1 : 0);
-	}
+	};
 
-	function increaseLevel() {
+	const increaseLevel = () => {
 		const len = LEVELS.length - 1;
 		changeLevel(level < len ? level + 1 : len);
-	}
-
-	function handleClick() {
-		gotoGame();
-	}
+	};
 
 	return (
 		<div className="dashboard">
 			<h1>{title}</h1>
 			<img src={logo} alt="sudoku logo" />
 			<div className="level-selection">
-				<IconButton iconSrc={leftIcon} handleClick={decreaseLevel}></IconButton>
+				<IconButton iconSrc={leftIcon} handleClick={decreaseLevel} />
 				<p>{LEVELS[level]}</p>
-				<IconButton iconSrc={leftIcon} isFlipped handleClick={increaseLevel}></IconButton>
+				<IconButton iconSrc={leftIcon} isFlipped handleClick={increaseLevel} />
 			</div>
-			<Button text={btnText} handleClick={handleClick} />
+			<Button text={btnText} handleClick={gotoGame} />
 		</div>
 	);
 }

@@ -13,7 +13,7 @@
 	},
 	"plugins": ["react", "prettier"],
 	"rules": {
-		"indent": ["warn", "tab", { "SwitchCase": 1 }],
+		"indent": ["warn", "tab", { "SwitchCase": 1, "ignoredNodes": ["ConditionalExpression"] }],
 		"linebreak-style": ["error", "unix"],
 		"semi": ["error", "always"],
 		"react/react-in-jsx-scope": "off"

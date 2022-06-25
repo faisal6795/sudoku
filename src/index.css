@@ -1,26 +1,14 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
-        'Helvetica Neue', sans-serif;
-    color: #333;
+	font-family: 'Roboto', sans-serif;
+	color: #333;
 }
 
 button {
-    color: inherit;
-}
-
-.container {
-    padding: 1rem 2rem;
-}
-
-@media screen and (min-width: 768px) {
-    .container {
-        max-width: 30rem;
-        margin: auto;
-    }
+	color: inherit;
 }
